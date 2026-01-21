@@ -1,0 +1,19 @@
+<mat-card style="padding: 20px">
+  <mat-card-header><mat-card-title>Employee Directory</mat-card-title></mat-card-header>
+  <table mat-table [dataSource]="employees" style="width: 100%">
+    <ng-container matColumnDef="id"
+      ><th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let e">{{ e.id }}</td></ng-container
+    >
+    <ng-container matColumnDef="name"
+      ><th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let e">{{ e.name }}</td></ng-container
+    >
+    <ng-container matColumnDef="dept"
+      ><th mat-header-cell *matHeaderCellDef>Department</th>
+      <td mat-cell *matCellDef="let e">{{ e.dept }}</td></ng-container
+    >
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-card>

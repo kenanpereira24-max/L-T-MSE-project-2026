@@ -1,0 +1,16 @@
+<mat-card style="padding: 20px; max-width: 400px; margin: auto">
+  <mat-card-header><mat-card-title>Apply for Leave</mat-card-title></mat-card-header>
+  <form
+    [formGroup]="leaveForm"
+    (ngSubmit)="submit()"
+    style="display: flex; flex-direction: column; gap: 10px"
+  >
+    <mat-form-field appearance="outline"
+      ><mat-label>Emp ID</mat-label><input matInput formControlName="empId" type="number"
+    /></mat-form-field>
+    <mat-form-field appearance="outline"
+      ><mat-label>Reason</mat-label><textarea matInput formControlName="reason"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="leaveForm.invalid">Submit</button>
+  </form>
+</mat-card>

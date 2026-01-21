@@ -1,0 +1,29 @@
+<mat-card style="padding: 20px">
+  <mat-card-header><mat-card-title>Daily Attendance</mat-card-title></mat-card-header>
+  <table mat-table [dataSource]="employees" style="width: 100%">
+    <ng-container matColumnDef="name"
+      ><th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let e">{{ e.name }}</td></ng-container
+    >
+    <ng-container matColumnDef="status"
+      ><th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let e">{{ e.status }}</td></ng-container
+    >
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let e">
+        <button mat-flat-button color="primary" (click)="mark(e.id, 'Present')">P</button>
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="mark(e.id, 'Absent')"
+          style="margin-left: 5px"
+        >
+          A
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-card>

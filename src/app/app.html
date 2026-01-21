@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>HR Management System</span>
+  <span style="flex: 1 1 auto"></span>
+  <button mat-button routerLink="/">Dashboard</button>
+  <button mat-button routerLink="/employees">Employees</button>
+  <button mat-button routerLink="/attendance">Attendance</button>
+  <button mat-button routerLink="/leave-request">Leave Request</button>
+  <button mat-button routerLink="/leave-approval">HR Approval</button>
+</mat-toolbar>
+
+<main style="padding: 20px">
+  <router-outlet></router-outlet>
+</main>
