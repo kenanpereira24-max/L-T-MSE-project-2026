@@ -1,14 +1,16 @@
-<div style="display: flex; gap: 20px">
-  <mat-card style="flex: 1; padding: 20px; text-align: center; background: #e3f2fd">
-    <mat-card-header><mat-card-title>Total Employees</mat-card-title></mat-card-header>
-    <mat-card-content
-      ><h1>{{ total }}</h1></mat-card-content
-    >
-  </mat-card>
-  <mat-card style="flex: 1; padding: 20px; text-align: center; background: #e8f5e9">
-    <mat-card-header><mat-card-title>Present Today</mat-card-title></mat-card-header>
-    <mat-card-content
-      ><h1 style="color: green">{{ present }}</h1></mat-card-content
-    >
-  </mat-card>
+<div class="container mt-4">
+  <div class="row gap-4">
+    <div class="col card text-center shadow-sm bg-light">
+      <div class="card-body">
+        <h5 class="card-title text-muted">Total Employees</h5>
+        <h1 class="display-4 fw-bold">{{ total }}</h1>
+      </div>
+    </div>
+    <div class="col card text-center shadow-sm text-white bg-success">
+      <div class="card-body">
+        <h5 class="card-title">Present Today</h5>
+        <h1 class="display-4 fw-bold">{{ present }}</h1>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,16 +1,26 @@
-<h2>Pending Approvals</h2>
-@for (req of requests; track req.id) {
-  @if (req.status === 'Pending') {
-    <mat-card style="margin-bottom: 10px; padding: 15px">
-      <mat-card-content>Emp ID: {{ req.empId }} | Reason: {{ req.reason }}</mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="update(req.id, 'Approved')">
-          Approve
-        </button>
-        <button mat-button color="warn" (click)="update(req.id, 'Rejected')">Reject</button>
-      </mat-card-actions>
-    </mat-card>
-  }
-} @empty {
-  <p>No pending requests.</p>
-}
+<div class="container mt-4">
+  <h2 class="mb-4">Pending Approvals</h2>
+  <div class="row">
+    @for (req of requests; track req.id) {
+      @if (req.status === 'Pending') {
+        <div class="col-md-6 col-lg-4 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Emp ID: {{ req.empId }}</h5>
+              <p class="card-text">Reason: {{ req.reason }}</p>
+              <span [class]="req.status | statusBadge">{{ req.status }}</span>
+            </div>
+            <div class="card-footer bg-white border-top-0 d-flex gap-2">
+              <button class="btn btn-success" (click)="update(req.id, 'Approved')">Approve</button>
+              <button class="btn btn-outline-danger" (click)="update(req.id, 'Rejected')">Reject</button>
+            </div>
+          </div>
+        </div>
+      }
+    } @empty {
+      <div class="col-12">
+        <div class="alert alert-info" role="alert">No pending requests.</div>
+      </div>
+    }
+  </div>
+</div>

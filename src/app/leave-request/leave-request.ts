@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 import { LeaveService } from '../leave-service';
 
 @Component({
   selector: 'app-leave-request',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './leave-request.html',
   styleUrl: './leave-request.css'
 })

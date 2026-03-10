@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { LeaveService, LeaveRequest } from '../leave-service';
+import { StatusBadgePipe } from '../status-badge-pipe';
 
 @Component({
   selector: 'app-leave-approval',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, StatusBadgePipe],
   templateUrl: './leave-approval.html',
   styleUrl: './leave-approval.css'
 })

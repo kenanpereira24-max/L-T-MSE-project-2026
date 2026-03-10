@@ -1,13 +1,35 @@
-<mat-toolbar color="primary">
-  <span>HR Management System</span>
-  <span style="flex: 1 1 auto"></span>
-  <button mat-button routerLink="/">Dashboard</button>
-  <button mat-button routerLink="/employees">Employees</button>
-  <button mat-button routerLink="/attendance">Attendance</button>
-  <button mat-button routerLink="/leave-request">Leave Request</button>
-  <button mat-button routerLink="/leave-approval">HR Approval</button>
-</mat-toolbar>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/dashboard">Leave System</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.isAuthenticated()">
+          <a class="nav-link" routerLink="/employees" routerLinkActive="active">Employees</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.isAuthenticated()">
+          <a class="nav-link" routerLink="/leave-request" routerLinkActive="active">Apply Leave</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.isAdmin()">
+          <a class="nav-link" routerLink="/leave-approval" routerLinkActive="active">Approvals</a>
+        </li>
+      </ul>
+      <div class="d-flex gap-2 align-items-center">
+        <ng-container *ngIf="!auth.isAuthenticated()">
+          <button class="btn btn-outline-light btn-sm" (click)="loginAsEmployee()">Login Employee</button>
+          <button class="btn btn-outline-info btn-sm" (click)="loginAsAdmin()">Login Admin</button>
+        </ng-container>
+        <ng-container *ngIf="auth.isAuthenticated()">
+          <span class="text-white me-3">Role: {{ auth.role }}</span>
+          <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</nav>
 
-<main style="padding: 20px">
+<main class="container">
   <router-outlet></router-outlet>
 </main>

@@ -1,19 +1,31 @@
-<mat-card style="padding: 20px">
-  <mat-card-header><mat-card-title>Employee Directory</mat-card-title></mat-card-header>
-  <table mat-table [dataSource]="employees" style="width: 100%">
-    <ng-container matColumnDef="id"
-      ><th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let e">{{ e.id }}</td></ng-container
-    >
-    <ng-container matColumnDef="name"
-      ><th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let e">{{ e.name }}</td></ng-container
-    >
-    <ng-container matColumnDef="dept"
-      ><th mat-header-cell *matHeaderCellDef>Department</th>
-      <td mat-cell *matCellDef="let e">{{ e.dept }}</td></ng-container
-    >
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-</mat-card>
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+      <h5 class="card-title mb-0">Employee Directory</h5>
+    </div>
+    <div class="card-body p-0">
+      <table class="table table-striped table-hover mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (e of employees; track e.id) {
+            <tr>
+              <td>{{ e.id }}</td>
+              <td>{{ e.name }}</td>
+              <td>{{ e.dept }}</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="3" class="text-center py-3">No employees found.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
